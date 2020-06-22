@@ -1,0 +1,19 @@
+Functions:
+# The function logical Name.
+  pythonInput:
+    # Each function section will be used to detail :
+    # 1: the function needed properties or any properties that we want to override from the integration template.
+    # 2: the function configuration overrides for the Global section.
+
+    # (String) The function friendly name.
+    # will be the name you will see in cloudguard reports (locally and remote)
+    #FriendlyName: myFunctionFriendlyName
+
+    # (String) The runtime environment for the Lambda function. (python2.7, nodejs8.10, java8 ...)
+    Runtime : python2.7
+    # (String) The handler file.function that is called to begin executing your function.
+    Handler: handler.lambda_handler
+    # (String) the relative path to the functions code.
+    # Can be a directory or a zip file
+    # Must be located in the file system tree that is below the current working directory
+    CodeLocation: DVSA/backeng/src/functions/
