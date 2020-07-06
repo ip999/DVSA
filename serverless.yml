@@ -23,11 +23,14 @@ plugins:
   - serverless-offline
   - serverless-stack-output
   - serverless-scriptable-plugin
+  - serverless-pseudo-parameters
 
 custom:
   stage: ${opt:stage, self:provider.stage}
   accountId: ${file(backend/serverless/scripts/vars.js):accountId}
-  
+  bucketNames:
+    bucket-feedback-bucket: dvsa-feedback-bucket-${self:custom.accountId}
+    bucket-receipts-bucket: dvsa-receipts-bucket-${self:custom.accountId}
   client:
     bucketName: dvsa-website-${self:custom.accountId}
     distributionFolder: client/dist
