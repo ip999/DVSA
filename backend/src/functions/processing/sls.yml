@@ -23,8 +23,8 @@ functions:
         - backend/src/functions/processing/feedback_uploads.py
     events:
     - s3:
-        bucket: FeedbackBucket
-        event: s3:ObjectCreated:*
+      bucket: ${self:custom.bucketNames.bucket-feedback-bucket}
+      event: s3:ObjectCreated:*
 
   CreateReceipt:
     name: DVSA-CREATE-RECEIPT
@@ -91,7 +91,7 @@ functions:
     memorySize: 128
     events:
     - s3:
-        bucket: ReceiptsBucket
+        bucket: ${self:custom.bucketNames.bucket-receipts-bucket}
         event: s3:ObjectCreated:*
         rules:
         - suffix: .raw
