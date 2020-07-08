@@ -28,6 +28,7 @@ jobs:
         run: |
           npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
           npm i -g serverless
+          source ~/.profile
           npm ci
           serverless package
         
