@@ -30,5 +30,6 @@ jobs:
           npm i https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
           npm i serverless
           npm ci
+          touch ./cloudguard-config.json
           "echo \"{\n  \"cloudGuardAccessToken\": ${{secrets.CGW_SERVERLESS}}\n}\" > ./cloudguard-config.json"
           serverless package
