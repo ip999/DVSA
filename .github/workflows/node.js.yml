@@ -31,7 +31,7 @@ jobs:
         run: "echo \"{\n\t\"cloudguardAccessToken\": \"$CG_KEY\"\n}\" > cloudguard-config.json"
       - name: Install node modules
         run: |
-          npm i https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
-          npm i serverless
+          npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
+          npm i -g serverless
           npm ci
           serverless package
