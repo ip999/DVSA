@@ -1,5 +1,5 @@
 ##################################################
-# DVSA: a Damn Vulnerable Serverless Application #
+# DVSA: a Damn Vulnerable Serverless Application ##
 ##################################################
 service: dvsa
 
