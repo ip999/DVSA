@@ -27,7 +27,7 @@ jobs:
           NPM_CONFIG_PREFIX: "~/.npm-global"
         run: |
           export PATH=~/.npm-blobal/bin:$PATH
-          npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
+          npm i -D https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
           npm i -g serverless
           source ~/.profile
           npm ci
