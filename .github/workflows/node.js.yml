@@ -25,9 +25,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
-    - run: npm i -g serverless
-    - run: npm ci
-    - run: "echo \"{\n  \"cloudGuardAccessToken\": ${{secrets.CGW_SERVERLESS}}\n}\" > ./cloudguard-config.json"
-    
-    - run: serverless package
+      run: npm i https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
+      run: npm i serverless
+      run: npm ci
+      run: "echo \"{\n  \"cloudGuardAccessToken\": ${{secrets.CGW_SERVERLESS}}\n}\" > ./cloudguard-config.json"
+      run: serverless package
