@@ -19,14 +19,16 @@ jobs:
         node-version: [12.18.1]
 
     steps:
-    - uses: actions/checkout@v2
-    #- uses: serverless/github-action@master
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm i https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
-    - run: npm i serverless
-    - run: npm ci
-    - run: "echo \"{\n  \"cloudGuardAccessToken\": ${{secrets.CGW_SERVERLESS}}\n}\" > ./cloudguard-config.json"
-    - run: serverless package
+      - uses: actions/checkout@v2
+      #- uses: serverless/github-action@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install node modules
+        run: |
+          npm i https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
+          npm i serverless
+          npm ci
+          "echo \"{\n  \"cloudGuardAccessToken\": ${{secrets.CGW_SERVERLESS}}\n}\" > ./cloudguard-config.json"
+          serverless package
