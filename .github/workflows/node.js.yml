@@ -17,9 +17,9 @@ jobs:
     name: Use Node.js ${{ matrix.node-version }}
     steps:
       - name: Checkout repo
-      - uses: actions/checkout@master
+        uses: actions/checkout@master
       - name: Setup node
-      - uses: actions/setup-node@master
+        uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}   
       - name: Installing packages
