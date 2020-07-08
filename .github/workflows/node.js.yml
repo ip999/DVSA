@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}   
       - run: |
-        npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
-        npm i -g serverless
-        npm ci -g
-        serverless package
+          npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
+          npm i -g serverless
+          npm ci -g
+          serverless package
