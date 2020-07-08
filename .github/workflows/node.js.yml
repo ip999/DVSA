@@ -16,12 +16,15 @@ jobs:
 
     name: Use Node.js ${{ matrix.node-version }}
     steps:
+      - name: Checkout repo
       - uses: actions/checkout@master
+      - name: Setup node
       - uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}   
-      - run: npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
-      - run: npm i -g serverless
-      - run: npm ci
-      - run: serverless package
+      - run: |
+          npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
+          npm i -g serverless
+          npm ci
+          serverless package
         
