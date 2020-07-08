@@ -16,8 +16,8 @@ jobs:
 
     name: Use Node.js ${{ matrix.node-version }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@vmaster
         with:
           node-version: ${{ matrix.node-version }}   
       - run: npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
