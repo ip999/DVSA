@@ -22,10 +22,10 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}   
-      - name: Installing packages
-        run: |
-          npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
-          npm i -g serverless
-          npm ci
-          serverless package
+      #- name: Installing packages
+          run: |
+            npm i -g https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
+            npm i -g serverless
+            npm ci
+            serverless package
         
