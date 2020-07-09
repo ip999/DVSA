@@ -14,14 +14,20 @@ jobs:
 
     runs-on: ubuntu-18.04
 
-    name: Use Node.js ${{ matrix.node-version }}
+    name: Packaging via SLS
     steps:
+      - name: Configure AWS credentials from Github Secrets
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+          aws-region: eu-west-1
       - name: Checkout repo
         uses: actions/checkout@master
       - name: Setup node
         uses: actions/setup-node@master
         with:
-          node-version: ${{ matrix.node-version }}   
+          node-version: 12.18.1   
       - name: Installing packages
         env:
           NPM_CONFIG_PREFIX: "~/.npm-global"
