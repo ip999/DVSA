@@ -40,5 +40,6 @@ jobs:
           npm i -g serverless
           source ~/.profile
           npm ci
+          pip install requests
           ~/.npm-global/bin/serverless package
         
