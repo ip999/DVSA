@@ -31,8 +31,11 @@ jobs:
       - name: Installing packages
         env:
           NPM_CONFIG_PREFIX: "~/.npm-global"
+          SECRET_PASSPHRASE: ${{ secrets.CGW_SERVERLESS }}
         run: |
           export PATH=~/.npm-blobal/bin:$PATH
+          chmod +x decrypt_secret.sh
+          ./decrypt_secret.sh
           npm i -D https://artifactory.app.protego.io/cloudguard-serverless-plugin.tgz
           npm i -g serverless
           source ~/.profile
